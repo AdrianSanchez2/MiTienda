@@ -1,0 +1,22 @@
+.header{
+    background-color: rgb(44, 44, 44);
+    color: aliceblue;
+}
+.header-item-list{
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 4rem;
+    margin: 0;
+    padding: 0;
+} 
+.list-item{
+    margin: 0 0.5rem 0 0.5rem;
+    
+}
+.buscador{
+    width: 55vw;
+    border-radius: 1rem;
+    padding: 0.5rem;
+}
