@@ -1,0 +1,22 @@
+.loginContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2rem
+}
+.loginForm{
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+}
+.loginForm > label, .loginForm > input, .loginButton {
+    margin: 0.5rem;
+}
+.loginButton, .logoutButton {
+    background-color: rgb(40, 147, 219);
+    color: aliceblue;
+    height: 2rem;
+    border-radius: 0.5rem;
+    border-color: white;
+}

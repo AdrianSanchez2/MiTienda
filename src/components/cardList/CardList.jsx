@@ -1,10 +1,10 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
-import React from "react";
+import React, { useState } from "react";
 import CardComponent from "../cardComponent/CardComponent";
 import './cardList.css';
 
-const CardList = ({ products, filter }) => {
+const CardList = ({ products, filter, addToCart }) => {
     const filteredProducts = products.filter((product) =>
     product.title.toLowerCase().includes(filter.toLowerCase())
     );
@@ -17,6 +17,7 @@ const CardList = ({ products, filter }) => {
                     price={product.price}
                     description={product.description}
                     image={product.image}
+                    onAddToCart={() => addToCart(product)}
                 />
             ))}
         </div>

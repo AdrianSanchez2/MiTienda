@@ -1,0 +1,9 @@
+.cart-container{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.total{
+    width: 60%;
+    text-align: right;
+}
