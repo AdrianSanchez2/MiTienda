@@ -16,7 +16,8 @@
     cursor: pointer;
 }
 .list-item:hover{
-    color: rgb(165, 165, 165);
+    color: rgb(40, 147, 219);
+    transition: ease-in-out;
 }
 .buscador{
     width: 50vw;

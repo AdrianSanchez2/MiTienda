@@ -13,6 +13,7 @@ const CardList = ({ products, filter, addToCart }) => {
             {filteredProducts.map((product) => (
                 <CardComponent
                     key={product.id}
+                    id={product.id}
                     title={product.title}
                     price={product.price}
                     description={product.description}

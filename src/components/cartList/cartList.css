@@ -3,7 +3,25 @@
     align-items: center;
     flex-direction: column;
 }
-.total{
-    width: 60%;
-    text-align: right;
+
+.cart-footer {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 80vw;
+}
+
+.buttonCheckout, .buttonRemove {
+    width: 8rem;
+    height: 2rem;
+    border-radius: 0.5rem;
+    border-color: aliceblue;
+    color: aliceblue;
+}
+
+.buttonCheckout {
+    background-color: rgb(40, 147, 219);
+}
+.buttonRemove {
+    background-color: rgb(212, 46, 46);
 }

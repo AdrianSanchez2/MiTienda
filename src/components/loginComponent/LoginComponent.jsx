@@ -1,22 +1,28 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
 import { useState } from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
 import './loginComponent.css';
 
 export default function LoginComponent({ onLogin, onLogout, isLoggedIn, user}){
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
 
+    const navigate = useNavigate();
+    const location = useLocation();
+
     const handleLogin = (e) => {
         e.preventDefault();
         onLogin(name, email);
         setEmail('');
         setName('')
+        navigate(location.state.pathname)
     }
 
     const handleLogout = (e) => {
         e.preventDefault();
         onLogout();
+        navigate("/");
     }
 
     return(

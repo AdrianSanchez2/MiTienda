@@ -1,0 +1,50 @@
+@import '../../App.css';
+
+.product-details-container {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+}
+.product-details-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    padding: 10px;
+    margin: 10px;
+    width: 90%;
+    background-color: var(--bg-color-light);
+    color: var(--text-color-light);
+}
+.product-details-section.dark {
+    background-color: var(--bg-color-dark-cart);
+    color: var(--text-color-dark);
+}
+.details-header, .details-content {
+    width: 50%;
+}
+.details-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 3rem;
+}
+.details-image {
+    max-width: 100%;
+}
+.addProductButton {
+    background-color: rgb(40, 147, 219);
+    color: aliceblue;
+    height: 2rem;
+    width: 100%;
+    border-radius: 0.5rem;
+    border-color: white;
+    cursor: pointer;
+}
+.volver-link {
+    color: var(--text-color-light);
+    text-decoration: none;
+}
+.volver-link.dark {
+    color: var(--text-color-dark);
+}

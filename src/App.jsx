@@ -7,31 +7,26 @@ import CardList from './components/cardList/CardList';
 import CartList from './components/cartList/CartList';
 
 import { ThemeContext } from './context/ThemeContext';
+import { useAuth } from './context/AuthContext';
 
 import './App.css'
 
 import productsData from '../data.json';
 import LoginComponent from './components/loginComponent/LoginComponent';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import ProductDetails from './components/productDetails/ProductDetails';
+import ProtectedRoute from './components/protectedRoute/ProtectedRoute';
+import NotFound from './views/NotFound';
 
 function App() {
   const [filter, setFilter] = useState("");
   const [cart, setCart] = useState([]);
-  const [isCartVisible, setIsCartVisible] = useState(false);
-  const [user, setUser] = useState(JSON.parse(localStorage.getItem('user')) || null);
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   const { theme } = useContext(ThemeContext);
+  const { user, isLoggedIn, login, logout } = useAuth();
 
   const handleFilterChange = (newFilter) => {
     setFilter(newFilter);
-  }
-
-  const toggleCartVisibility = () => {
-    setIsCartVisible(!isCartVisible);
-  }
-
-  const showMenuScreen = () => {
-    setIsCartVisible(false);
   }
 
   const addToCart = (productToAdd) => {
@@ -48,37 +43,45 @@ function App() {
     }
   }
 
-  const handleLogin = (name, email) => {
-    setUser({ name, email });
-    localStorage.setItem('user', JSON.stringify({name, email}));
-    setIsLoggedIn(true);
+  const handleCheckout = () => {
+    setCart([]);
+    alert("Serás redirigido a la pagina de tramitación del pedido");
   }
 
-  const handleLogout = () => {
-    setUser(null);
-    localStorage.removeItem('user');
-    setIsLoggedIn(false);
-    console.log(isLoggedIn)
+  const handleRemoveFromCart = () => {
+    setCart([]);
+    alert("El carrito se ha vaciado correctamente");
   }
 
   const cartItemCount = cart.reduce((total, item) => total + item.quantity, 0);
   
   return (
-    <section id='body' className={`${theme}`}>
-        <Header onFilterChange={handleFilterChange} onToggleCart={toggleCartVisibility} onShowMenuScreen={showMenuScreen} cartItemCount={cartItemCount}/>
+    <BrowserRouter>
+      <section id='body' className={`${theme}`}>
+        <Header onFilterChange={handleFilterChange} cartItemCount={cartItemCount}/>
         {isLoggedIn ? (
           <Discount message={`¡${user.name}, ahora tienes un 20% de descuento!`}/>
         ) : (
           <Discount message={"¡20% de descuento para nuevos clientes!"}/>
         )}
-        {isCartVisible ? (
-          <CartList cart={cart}/>
-        ) : (
-          <CardList products={productsData} filter={filter} addToCart={addToCart}/>
-        )}
-        <LoginComponent onLogin={handleLogin} onLogout={handleLogout} isLoggedIn={isLoggedIn} user={user}/>
+        <Routes>
+          <Route path='/' element={<CardList products={productsData} filter={filter} addToCart={addToCart}/>}/>
+          <Route path='/cart' element={
+            <ProtectedRoute>
+              <CartList cart={cart} onCheckout={handleCheckout} onRemoveFromCart={handleRemoveFromCart}/>
+            </ProtectedRoute>
+          }/>
+          <Route path='/product/:id' element={
+            <ProtectedRoute>
+              <ProductDetails addToCart={addToCart}/>
+            </ProtectedRoute>
+          }/>
+          <Route path='/login' element={<LoginComponent onLogin={login} onLogout={logout} isLoggedIn={isLoggedIn} user={user}/>}/>
+          <Route path='*' element={<NotFound/>}/>
+        </Routes>
         <Footer/>
     </section>
+    </BrowserRouter>
   )
 }
 

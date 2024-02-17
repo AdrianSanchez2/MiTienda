@@ -4,10 +4,6 @@
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
     padding: 10px;
     margin: 10px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    height: 100vh;
     width: 15%;
     background-color: var(--bg-color-light);
     color: var(--text-color-light);
@@ -15,9 +11,6 @@
 .card-container.dark {
     background-color: var(--bg-color-dark-cart);
     color: var(--text-color-dark);
-}
-.card-header {
-    text-align: center;
 }
 
 .card-image {
@@ -42,20 +35,29 @@
 }
 
 .price-container {
-    text-align: center;
     color: rgb(40, 147, 219);
 }
 
-.addProductButton {
+#detailsButton {
     background-color: rgb(40, 147, 219);
     color: aliceblue;
     height: 2rem;
+    width: 100%;
     border-radius: 0.5rem;
     border-color: white;
+    cursor: pointer;
+}
+.link_style_none {
+    color: aliceblue;
+    text-decoration: none;
+}
+.link_style_none:hover {
+    color: rgb(40, 147, 219);
+    transition: 0.2s ease-in-out;
 }
 
 /* Estilos del scrollbar */
-.card-content::-webkit-scrollbar {
+/* .card-content::-webkit-scrollbar {
     width: 2px;
   }
   
@@ -65,4 +67,4 @@
   
   .card-content::-webkit-scrollbar-track {
     background-color: #5a5a5a;
-  }
+  } */
