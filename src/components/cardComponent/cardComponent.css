@@ -7,6 +7,7 @@
     width: 15%;
     background-color: var(--bg-color-light);
     color: var(--text-color-light);
+    position: relative;
 }
 .card-container.dark {
     background-color: var(--bg-color-dark-cart);
@@ -54,6 +55,21 @@
 .link_style_none:hover {
     color: rgb(40, 147, 219);
     transition: 0.2s ease-in-out;
+}
+.admin_utils {
+    position: absolute;
+    right: 0.5rem;
+    list-style: none;
+    top: 0.5rem;
+}
+.admin_utils > li {
+    margin: 0.5rem 0.2rem 0 0;
+    color: rgb(212, 46, 46);
+    cursor: pointer;
+    transition: 0.2s ease-in-out;
+}
+.admin_utils > li:hover {
+    color: rgb(40, 147, 219);
 }
 
 /* Estilos del scrollbar */

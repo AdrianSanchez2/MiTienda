@@ -1,5 +1,3 @@
-/* eslint-disable react/prop-types */
-/* eslint-disable no-unused-vars */
 import { useState } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import './loginComponent.css';
@@ -16,7 +14,9 @@ export default function LoginComponent({ onLogin, onLogout, isLoggedIn, user}){
         onLogin(name, email);
         setEmail('');
         setName('')
-        navigate(location.state.pathname)
+        if (location.state!= null) {
+            navigate(location.state.pathname)
+        }
     }
 
     const handleLogout = (e) => {

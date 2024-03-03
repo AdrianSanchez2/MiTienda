@@ -1,0 +1,71 @@
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+}
+
+.open {
+  display: flex;
+}
+
+.modal_inputs{
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+.modal_inputs > li {
+  margin: 2rem 0 0 0;
+  display: flex;
+  width: 100%;
+}
+.modal_inputs > li > label {
+  margin-right: 2rem;
+  width: 50%;
+}
+.modal_inputs > li > input {
+  width: 50%;
+}
+.buttons_section {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 2rem;
+}
+.submitBtn , .cancelBtn {
+  height: 2rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  color: aliceblue;
+  border-color: white;
+  transition: 0.2s ease-in-out;
+}
+.submitBtn {
+  background-color: rgb(40, 147, 219);
+}
+.cancelBtn {
+  background-color: rgb(212, 46, 46);
+}
+.submitBtn:hover {
+  color: rgb(40, 147, 219);
+  background-color: aliceblue;
+  border-color: rgb(40, 147, 219);
+}
+.cancelBtn:hover {
+  color: rgb(212, 46, 46);
+  background-color: aliceblue;
+  border-color: rgb(212, 46, 46);
+}
