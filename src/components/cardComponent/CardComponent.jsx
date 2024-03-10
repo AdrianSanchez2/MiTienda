@@ -30,9 +30,9 @@ const CardComponent = ({id, title, price, description, image, onDelete, onEdit, 
                 <h3 className="price">${price}</h3>
             </article>
             {isLoggedIn && (
-                <button id="detailsButton">
-                    <Link to={`/product/${id}`} className="link_style_none">Detalles...</Link>
-                </button>
+                <Link to={`/product/${id}`} className="link_style_none">
+                    <button id="detailsButton">Detalles...</button>
+                </Link>
             )}
             { user && user.role === 'admin' && (
                 <ul className="admin_utils">

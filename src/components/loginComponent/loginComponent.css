@@ -2,13 +2,14 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 2rem
+    margin-top: 2rem;
 }
 .loginForm{
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
     display: flex;
     flex-direction: column;
     padding: 2rem;
+    width: 33vw;
 }
 .loginForm > label, .loginForm > input, .loginButton {
     margin: 0.5rem;
@@ -19,4 +20,7 @@
     height: 2rem;
     border-radius: 0.5rem;
     border-color: white;
+}
+.error {
+    color: rgb(212, 46, 46);
 }

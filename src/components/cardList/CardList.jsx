@@ -34,9 +34,9 @@ const CardList = ({ filter, addToCart }) => {
   }, [dispatch])
 
   const handleAddNewProduct = () => {
-    setEditedProduct({id:null, title: "", price: "", description: ""});
-    console.log("Edited Product After Adding New Product:", editedProduct);
+    setEditedProduct({id:null, title: "", price: "", description: "", category: "", image: ""});
     setIsModalOpen(true);
+    console.log(editedProduct)
   };
 
   const handleEditProduct = (id, title, price, description) => {
@@ -66,17 +66,19 @@ const CardList = ({ filter, addToCart }) => {
       setLoading(false);
     },1000);
     setIsModalOpen(false);
-    setEditedProduct({id:null, title: "", price: "", description: ""});
+    setEditedProduct({id:null, title: "", price: "", description: "", category: "", image: ""});
+    console.log(editedProduct)
   }
 
   const handleCloseModal = () => {
     setIsModalOpen(false);
+    setEditedProduct({id:null, title: "", price: "", description: "", category: "", image: ""});
+    console.log(editedProduct);
   };
 
   const handleInputChange = (e) => {
     const { name, value} = e.target;
     setEditedProduct({...editedProduct, [name]: value});
-    console.log("Edited Product After Input Change:", editedProduct);
   }
 
   const filteredProducts = products.filter((product) =>
@@ -116,7 +118,7 @@ const CardList = ({ filter, addToCart }) => {
       {user && user.role === "admin" && (
         <button
           className="add_new_product_btn"
-          onClick={() => handleAddNewProduct(null, "", "", "")}
+          onClick={() => handleAddNewProduct()}
         >
           Añadir nuevo producto
         </button>
@@ -130,7 +132,10 @@ const CardList = ({ filter, addToCart }) => {
         title={editedProduct.title}
         price={editedProduct.price}
         description={editedProduct.description}
+        category={editedProduct.category}
+        image={editedProduct.image}
         id={editedProduct.id}
+        onSetEditProduct={() => setEditedProduct(null, "", "", "", "", "")}
       />
     </div>
   );

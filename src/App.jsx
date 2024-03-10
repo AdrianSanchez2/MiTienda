@@ -22,7 +22,7 @@ function App() {
   const [cart, setCart] = useState([]);
 
   const { theme } = useContext(ThemeContext);
-  const { user, isLoggedIn, login, logout } = useAuth();
+  const { user, isLoggedIn, login, logout, setIsLoggedIn, setUser } = useAuth();
 
   const handleFilterChange = (newFilter) => {
     setFilter(newFilter);
@@ -75,7 +75,7 @@ function App() {
               <ProductDetails addToCart={addToCart}/>
             </ProtectedRoute>
           }/>
-          <Route path='/login' element={<LoginComponent onLogin={login} onLogout={logout} isLoggedIn={isLoggedIn} user={user}/>}/>
+          <Route path='/login' element={<LoginComponent onLogout={logout} isLoggedIn={isLoggedIn} user={user} onLoggedIn={setIsLoggedIn} onSetUser={setUser}/>}/>
           <Route path='*' element={<NotFound/>}/>
         </Routes>
         <Footer/>
